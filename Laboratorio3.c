@@ -100,12 +100,27 @@ int main() {
     strcpy(libros[4].titulo, "Don Quijote de la Mancha");
     strcpy(libros[4].autor, "Miguel de Cervantes");
     libros[4].ISBN = 9788424123752;
-    libros[4].precio = 18.00;
+    libros[4].precio = 14.00;
 
     for (int i = 0; i < 5; i++) {
         printf("Libro %d Details:\n", i + 1);
         displayLibro(&libros[i]);
     }
+
+    float MayorPrecio = libros[0].precio;
+    int HighPrecio = 0;
+
+    for(int i=1;i<5;i++)
+    {
+        if(libros[i].precio >MayorPrecio)
+        {
+            MayorPrecio =libros[i].precio;
+            HighPrecio =i;
+        }
+    }
+    
+    printf("el libro con mayor precio es:\n");
+    displayLibro(&libros[HighPrecio]);
     return 0;
 }
 
